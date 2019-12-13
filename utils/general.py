@@ -164,3 +164,19 @@ def lsplit(array, block_size):
         blocks.append(array[start:end])
 
     return blocks
+
+class ListIndex:
+    def __init__(self, index, value):
+        self.index = index
+        self.value = value
+
+    def even_odd(self, even, odd):
+        return even if self.index%2==0 else odd
+
+    @staticmethod
+    def list(items):
+        item_list = items if type(items) is list else []
+        indices = []
+        for i in range(len(item_list)):
+            indices.append(ListIndex(i, item_list[i]))
+        return indices
