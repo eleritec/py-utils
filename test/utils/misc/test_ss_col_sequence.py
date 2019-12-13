@@ -2,6 +2,7 @@ import unittest
 
 from utils.misc.ss_col_sequence import get_sequence, next
 from utils.general import ListIndex
+indices = ListIndex.list
 
 class TestSSColSequence(unittest.TestCase):
 
@@ -40,7 +41,7 @@ class TestSSColSequence(unittest.TestCase):
 
     def test_complex_formulae_001(self):
         to_formula = lambda col: '${}3-sum({}20:{}100)'.format(col.even_odd('F', 'G'), col.value, col.value)
-        formulae = [to_formula(col) for col in ListIndex.list(get_sequence('J', 10, 2))]
+        formulae = [to_formula(col) for col in indices(get_sequence('J', 10, 2))]
 
         self.assertEqual(len(formulae), 10)
         self.assertEqual(formulae[0], '$F3-sum(J20:J100)')
